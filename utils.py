@@ -1,9 +1,9 @@
-from models import Pessoas
+from models import Pessoas, Usuarios
 
 
 # INSERE dados na tabela pessoa
 def insere_pessoas():
-    pessoa = Pessoas(nome='Catarine', idade=34)
+    pessoa = Pessoas(nome='gustavo', idade=24)
     print(pessoa)
     pessoa.save()
 
@@ -28,8 +28,19 @@ def exclui_pessoas():
     pessoa = Pessoas.query.filter_by(nome='Bruno').first()
     pessoa.delete()
 
+def insere_usuario(login, senha):
+    usuario = Usuarios(login=login, senha=senha)
+    usuario.save()
+
+def consulta_todos_usuarios():
+    usuarios = Usuarios.query.all()
+    print(usuarios)
+
 if __name__ == '__main__':
+    #insere_usuario('gustavo', "1234")
+    #insere_usuario("fernanda", "5678")
+    consulta_todos_usuarios()
     #insere_pessoas()
     #altera_pessoas()
-    exclui_pessoas()
-    consulta_pessoas()
+    #exclui_pessoas()
+    #consulta_pessoas()
